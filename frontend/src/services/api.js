@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",  // 👈 VERY IMPORTANT
+ baseURL: "https://task-management-system-7rhy.onrender.com/api"
 });
 
 // Token auto attach
