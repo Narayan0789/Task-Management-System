@@ -166,4 +166,4 @@ Clean UI & conditional rendering
 👤 Author
 
 Narayan Kumar
-Full Stack Java Developer
+Full Stack Developer
