@@ -6,10 +6,20 @@ const connectDB = require("./config/db");
 dotenv.config();
 connectDB();
 
-const app = express();   // ✅ App yahan declare hoga
+const app = express();
 
-// Middleware
-app.use(cors());
+// ✅ Proper Production CORS Setup
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://task-management-system-teal-phi.vercel.app"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  })
+);
+
 app.use(express.json());
 
 // Root Route
@@ -20,7 +30,7 @@ app.get("/", (req, res) => {
 // Routes
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/tasks", require("./routes/taskRoutes"));
-app.use("/api/users", require("./routes/userRoutes"));  // ✅ yahan hona chahiye
+app.use("/api/users", require("./routes/userRoutes"));
 
 // 404 Handler
 app.use((req, res) => {
